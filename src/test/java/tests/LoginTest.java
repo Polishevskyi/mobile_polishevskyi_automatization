@@ -9,6 +9,8 @@ import pages.LoginPage;
 import pages.MenuPage;
 import pages.ProductsPage;
 
+import static base.AppStrings.*;
+
 public class LoginTest extends BaseTest {
 
     MenuPage menuPage;
@@ -25,20 +27,20 @@ public class LoginTest extends BaseTest {
 
     @Test(priority = 4)
     public void validLoginTest() {
-        loginPage.login("bob@example.com", "10203040");
+        loginPage.login(VALID_USERNAME, VALID_PASSWORD);
         Assert.assertTrue(productsPage.waitForProductText());
     }
 
     @Test(priority = 1)
     public void invalidLogin_emptyUserNameTest() {
-        loginPage.login("", "10203040");
-        Assert.assertEquals(loginPage.getUserNameErrorText(), "Username is required");
+        loginPage.login("", VALID_PASSWORD);
+        Assert.assertEquals(loginPage.getUserNameErrorText(), ERROR_USERNAME_REQUIRED);
     }
 
     @Test(priority = 2)
     public void invalidLogin_emptyPasswordTest() {
-        loginPage.login("bob@example.com", "");
-        Assert.assertEquals(loginPage.getPasswordErrorText(), "Password is required");
+        loginPage.login(VALID_USERNAME, "");
+        Assert.assertEquals(loginPage.getPasswordErrorText(), ERROR_PASSWORD_REQUIRED);
     }
 
     @Test(dataProvider = "invalid-login-dataProvider", priority = 3)
@@ -50,8 +52,8 @@ public class LoginTest extends BaseTest {
     @DataProvider(name = "invalid-login-dataProvider")
     public Object[][] dataProviderArr() {
         Object[][] objects = {
-                {"bob@example.com", "1234", "Provided credentials do not match any user in this service."},
-                {"bob@example", "1234", "Provided credentials do not match any user in this service."}
+                {VALID_USERNAME, "1234", ERROR_INVALID_CREDENTIALS},
+                {"bob@example", "1234", ERROR_INVALID_CREDENTIALS}
         };
         return objects;
     }
