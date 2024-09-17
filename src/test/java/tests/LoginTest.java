@@ -9,7 +9,7 @@ import pages.LoginPage;
 import pages.MenuPage;
 import pages.ProductsPage;
 
-import static base.AppStrings.*;
+import static base.StringHelper.*;
 
 public class LoginTest extends BaseTest {
 

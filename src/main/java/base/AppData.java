@@ -4,7 +4,7 @@ public class AppData {
     public static String platform = System.getProperty("platform", "ios");
     public static String useGesturePlugin = System.getProperty("useGesturePlugin", "true");
     public static String chromeAutoDownloadDriver = System.getProperty("chromeAutoDownloadDriver", "true");
-    public static String isCloud = System.getProperty("isCloud", "true");
+    public static String isCloud = System.getProperty("isCloud", "false");
 }
 
 //mvn clean test -Dplatform=android

@@ -1,0 +1,6 @@
+Here is the link to download the iOS and Android apps:
+https://github.com/saucelabs/my-demo-app-rn/releases
+
+APK file – for Android phones and BrowserStack.
+IPA file – for use with BrowserStack.
+ZIP file (app) – for iOS phones.
