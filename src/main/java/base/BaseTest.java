@@ -14,7 +14,6 @@ public class BaseTest {
 
     @BeforeClass
     public static void launchApp() throws MalformedURLException {
-        System.out.println("before method");
         AppFactory.launchApp();
     }
 

@@ -1,9 +1,7 @@
 package tests;
 
 import base.BaseTest;
-import driver.AppDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

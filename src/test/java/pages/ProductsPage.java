@@ -1,6 +1,5 @@
 package pages;
 
-import base.Util;
 import driver.AppDriver;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;

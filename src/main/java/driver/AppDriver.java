@@ -26,6 +26,5 @@ public class AppDriver {
 
     public static void setDriver(WebDriver Driver) {
         driver.set(Driver);
-        System.out.println("Driver is set");
     }
 }

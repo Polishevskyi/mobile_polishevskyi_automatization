@@ -45,7 +45,6 @@ public class AppFactory {
         }
 
         AppDriver.setDriver(driver);
-        System.out.println("AndroidDriver is set");
     }
 
     private static void ios_launchApp() throws MalformedURLException {
@@ -68,16 +67,13 @@ public class AppFactory {
         }
 
         AppDriver.setDriver(driver);
-        System.out.println("IOSDriver is set");
     }
 
     public static void launchApp() throws MalformedURLException {
-        System.out.println("entering into launchapp");
         if (AppData.platform.contains("ios")) {
             AppFactory.ios_launchApp();
         } else if (AppData.platform.contains("android")) {
             AppFactory.android_launchApp();
-            System.out.println("Android launched...");
         } else
             throw new SkipException("Enter valid platform value, android/ios");
     }
