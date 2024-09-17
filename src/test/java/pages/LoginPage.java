@@ -40,7 +40,6 @@ public class LoginPage extends BasePage {
     MenuPage menuPage = new MenuPage();
 
     public void login(String username, String password) {
-//        menuPage.navigateToLogin();
         waitNtype(userName, username);
         Password.clear();
         Password.sendKeys(password);

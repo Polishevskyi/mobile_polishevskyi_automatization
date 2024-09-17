@@ -149,15 +149,3 @@ public class BasePage {
         return flag;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-

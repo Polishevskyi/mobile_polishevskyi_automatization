@@ -7,7 +7,6 @@ public class AppDriver {
     private static AppDriver instance = null;
 
     private AppDriver() {
-
     }
 
     public static AppDriver getInstance() {

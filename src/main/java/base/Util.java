@@ -114,8 +114,6 @@ public class Util {
         Point midPoint = new Point((int) (size.width * 0.5), (int) (size.height * 0.5));
         int bottom = midPoint.y + (int) (midPoint.y * scrollRatio);
         int top = midPoint.y - (int) (midPoint.y * scrollRatio);
-        //Point Start = new Point(midPoint.x, bottom );
-        //Point End = new Point(midPoint.x, top );
         int left = midPoint.x - (int) (midPoint.x * scrollRatio);
         int right = midPoint.x + (int) (midPoint.x * scrollRatio);
 
@@ -128,12 +126,6 @@ public class Util {
         } else {
             swipe(new Point(right, midPoint.y), new Point(left, midPoint.y), SCROLL_DUR);
         }
-
-
-        //Point Start = new Point(Right, midPoint.y );
-        //Point End = new Point(Left, midPoint.y );
-
-        //swipe(Start, End, );
     }
 
     protected static void swipe(Point start, Point end, Duration duration) {
@@ -142,12 +134,6 @@ public class Util {
         Sequence swipe = new Sequence(input, 0);
         swipe.addAction(input.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), start.x, start.y));
         swipe.addAction(input.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
-        /*if (isAndroid) {
-            duration = duration.dividedBy(ANDROID_SCROLL_DIVISOR);
-        } else {
-            swipe.addAction(new Pause(input, duration));
-            duration = Duration.ZERO;
-        }*/
         swipe.addAction(input.createPointerMove(duration, PointerInput.Origin.viewport(), end.x, end.y));
         swipe.addAction(input.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         ((AppiumDriver) AppDriver.getCurrentDriver()).perform(ImmutableList.of(swipe));
@@ -197,8 +183,6 @@ public class Util {
                 , location.y + 10);
         Point pDest = new Point(location.x + size.getWidth() / 2
                 , location.y + size.getHeight() - 10);
-
-        //The same way, try to identify the Points for horigental drawing
         swipe(pSource, pDest, SCROLL_DUR);
     }
 
@@ -229,14 +213,6 @@ public class Util {
     }
 
     public static String convertImg_Base64(String screenshotPath) throws IOException {
-           /*File f = new File(screenshotPath);
-            FileInputStream fis = new FileInputStream(f);
-            byte[] bytes = new byte[(int)f.length()];
-            fis.read(bytes);
-            String base64Img =
-                    new String(Base64.encodeBase64(bytes), StandardCharsets.UTF_8);
-            */
-
         byte[] file = FileUtils.readFileToByteArray(new File(screenshotPath));
         String base64Img = Base64.getEncoder().encodeToString(file);
         return base64Img;

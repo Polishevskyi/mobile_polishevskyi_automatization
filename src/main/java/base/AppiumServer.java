@@ -27,12 +27,7 @@ public class AppiumServer {
             builder.withArgument(GeneralServerFlag.ALLOW_INSECURE, "chromedriver_autodownload");
         }
 
-        //.withArgument(GeneralServerFlag.BASEPATH, "wd/hub")
         server = AppiumDriverLocalService.buildService(builder);
-        //server.start();
-        //System.out.println(server.getUrl());
-        //System.out.println(server.isRunning());
-        //server.stop();
     }
 
     private static AppiumDriverLocalService getInstance() {
