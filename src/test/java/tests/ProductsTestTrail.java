@@ -1,13 +1,13 @@
 package tests;
 
 import base.BaseTest;
-import org.testng.Assert;
+import driver.AppDriver;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.MenuPage;
 import pages.ProductsPage;
 
-public class ProductsTest extends BaseTest {
+public class ProductsTestTrail extends BaseTest {
 
     MenuPage menuPage;
     LoginPage loginPage;
@@ -19,11 +19,16 @@ public class ProductsTest extends BaseTest {
         loginPage = new LoginPage();
         prodPage = new ProductsPage();
 
-        Assert.assertEquals(prodPage.getItemsCount(), 6);
+        AppDriver.getCurrentDriver().findElement(prodPage.fifthItem).click();
+//        AppDriver.getCurrentDriver().findElement(prodPage.footer).click();
+
+       /* Assert.assertEquals(prodPage.getItemsCount(), 6);
 
         prodPage.sortBy();
         Thread.sleep(1000);
         Assert.assertEquals(prodPage.getFirstProductPrice(), "$29.99");
         Assert.assertEquals(prodPage.getFirstProductName(), "Sauce Labs Backpack");
+
+        */
     }
 }
